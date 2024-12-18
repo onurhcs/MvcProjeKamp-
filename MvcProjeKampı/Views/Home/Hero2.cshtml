@@ -1,0 +1,41 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+@foreach (var item in Model.Take(3))
+{
+    <div class="post-media">
+        <a href="marketing-single.html" title="Blog Detayı">
+            <img src="@item.ImageUrl" alt="Blog Görseli" class="img-fluid">
+            <div class="hovereffect">
+                <span></span>
+            </div>
+        </a>
+    </div>
+    <!-- Blog Meta Bilgisi -->
+<div class="blog-meta big-meta text-center">
+
+    <h4>
+        <a href="@Url.Action("Index", "Home2", new { id = item.HeadingId })" title="Detay Sayfası">
+            @item.HeadingName
+        </a>
+    </h4>
+    <p>@item.Description.Substring(0, 100)...</p> <!-- Kısa açıklama göster -->
+    <small>
+        <a href="marketing-category.html" title="Kategori">
+            <i class="fa fa-folder-open"></i> @item.Category.CategoryName
+        </a>
+    </small>
+    <small>
+        <a href="marketing-single.html" title="Tarih">
+            <i class="fa fa-calendar"></i> @item.HeadingDate.ToString("dd MMMM yyyy")
+        </a>
+    </small>
+    <small>
+        <a href="#" title="Yazar">
+            <i class="fa fa-user"></i> @item.Writer.WriterName @item.Writer.WriterSurname
+        </a>
+    </small>
+
+    <small><a href="#" title="Görüntüleme"><i class="fa fa-eye"></i> 91 Görüntüleme</a></small>
+</div>
+}

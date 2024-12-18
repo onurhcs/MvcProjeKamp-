@@ -1,0 +1,118 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+@{
+    ViewBag.Title = "MyHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başlık Yönetimi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <style>
+        .table-hover tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .custom-card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+            border-radius: 10px;
+        }
+
+        .btn-custom {
+            display: inline-flex;
+            align-items: center;
+        }
+
+            .btn-custom i {
+                margin-right: 5px;
+            }
+
+        .avatar-sm {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <section class="content-header mb-4">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="text-primary font-weight-bold mb-0">
+                    <i class="fas fa-tasks me-2"></i>Başlık Yönetimi
+                </h2>
+                <a href="/Hedaing/AddHedaing/" class="btn btn-success btn-lg">
+                    <i class="fas fa-plus-circle"></i> Yeni Başlık Ekle
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card custom-card">
+                <div class="card-header bg-gradient-primary text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><i class="fas fa-list"></i> Tüm Başlıklar</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped table-hover text-center mb-0">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th>#</th>
+                                <th>Başlık Adı</th>
+                                <th>Oluşturan Yazar</th>
+                                <th>Kategori</th>
+                                <th>Aksiyonlar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.HeadingId</td>
+                                    <td class="text-left">
+                                        <strong>@item.HeadingName</strong><br />
+                                        <small class="text-muted">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            @item.HeadingDate.ToString("dd MMMM yyyy")
+                                        </small>
+                                    </td>
+                                    <td class="text-left d-flex align-items-center">
+                                        <img src="@item.Writer.WriterImage" alt="Yazar Resmi" class="avatar-sm" />
+                                        <span>@item.Writer.WriterName @item.Writer.WriterSurname</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-info text-white">@item.Category.CategoryName</span>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary btn-custom" href="/Content/ContentByHeading/@item.HeadingId">
+                                            <i class="fas fa-folder"></i> Yazılar
+                                        </a>
+                                        <a class="btn btn-sm btn-info btn-custom" href="/WriterPanel/EditHeading/@item.HeadingId">
+                                            <i class="fas fa-pencil-alt"></i> Düzenle
+                                        </a>
+                                        <a class="btn btn-sm btn-danger btn-custom" href="/WriterPanel/DeleteHeading/@item.HeadingId">
+                                            <i class="fas fa-trash"></i> Sil
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

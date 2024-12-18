@@ -1,0 +1,14 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+@foreach (var item in Model.OrderByDescending(x => x.HeadingDate).Take(4))
+{
+    <a href="marketing-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="w-100 justify-content-between">
+            <img src="@item.ImageUrl" alt="@item.HeadingName" class="img-fluid float-left">
+            <h5 class="mb-1">@item.HeadingName</h5>
+
+            <small>@item.HeadingDate.ToString("dd MMMM yyyy")</small>
+        </div>
+    </a>
+}

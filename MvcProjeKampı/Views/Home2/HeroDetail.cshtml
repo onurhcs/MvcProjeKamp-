@@ -1,0 +1,50 @@
+﻿@model EntityLayer.Concrete.Heading
+
+<div class="page-wrapper">
+  
+        <div class="blog-title-area">
+            <ol class="breadcrumb hidden-xs-down">
+                <li class="breadcrumb-item"><a href="/Index/Home/">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Blog</a></li>
+                <li class="breadcrumb-item active">@Model.HeadingName</li>
+            </ol>
+
+            <h3>@Model.HeadingName</h3>
+
+            <div class="blog-meta big-meta">
+                <small><a href="marketing-single.html" title="">@Model.HeadingDate.ToString("dd MMMM yyyy")</a></small>
+                <small><a href="blog-author.html" title="">@Model.Writer.WriterName @Model.Writer.WriterSurname</a></small>
+                <small><a href="#" title=""><i class="fa fa-eye"></i> 123</a></small>
+            </div><!-- end meta -->
+
+            <div class="post-sharing">
+                <ul class="list-inline">
+                    <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                    <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                    <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div><!-- end post-sharing -->
+        </div><!-- end title -->
+
+
+    <div class="blog-content">
+
+
+        <img src="@Model.ImageUrl" alt="" class="img-fluid img-fullwidth">
+
+        <div class="pp">
+            <h3><strong>@Model.Title </strong></h3>
+            <p>@Model.Description</p>
+            <p>@Model.Description2</p>
+        </div><!-- end pp -->
+    </div><!-- end content -->
+
+
+
+    <div class="custombox authorbox clearfix">
+        @Html.Action("Writer", "Home2")
+
+    </div><!-- end author-box -->
+    <hr class="invis1">
+    @Html.Action("Comments", "Home2")
+</div><!-- end page-wrapper -->

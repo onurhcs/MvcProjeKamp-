@@ -1,0 +1,66 @@
+﻿@model EntityLayer.Concrete.Message
+@{
+    ViewBag.Title = "Mesaj Detayı";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Ana Container -->
+<div class="container mt-5">
+    <!-- Kart Tasarımı -->
+    <div class="card border-0 shadow-lg">
+        <!-- Kart Üst Kısmı -->
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0"><i class="fas fa-envelope-open-text me-2"></i> Mesaj Detayı</h4>
+            <a href="/Message/GetInBoxMessages" class="btn btn-light btn-sm">
+                <i class="fas fa-arrow-left me-1"></i> Gelen Kutusuna Dön
+            </a>
+        </div>
+
+        <!-- Kart İçerik -->
+        <div class="card-body bg-light">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <h5 class="fw-bold text-secondary"><i class="fas fa-user me-2"></i> Gönderen:</h5>
+                    <p class="mb-0">@Model.SenderMail</p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="fw-bold text-secondary"><i class="fas fa-user-friends me-2"></i> Alıcı:</h5>
+                    <p class="mb-0">@Model.ReceiverMail</p>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <h5 class="fw-bold text-secondary"><i class="fas fa-tag me-2"></i> Konu:</h5>
+                <p class="text-dark">@Model.Subject</p>
+            </div>
+
+            <div class="mb-4">
+                <h5 class="fw-bold text-secondary"><i class="fas fa-align-left me-2"></i> Mesaj İçeriği:</h5>
+                <p class="text-dark">@Model.MessageContent</p>
+            </div>
+
+            <div>
+                <h6 class="text-muted">
+                    <i class="far fa-clock me-2"></i> Gönderim Tarihi:
+                    @Model.MessageDate.ToString("dd MMMM yyyy - HH:mm")
+                </h6>
+            </div>
+        </div>
+
+        <!-- Kart Alt Kısmı -->
+        <div class="card-footer bg-white d-flex justify-content-end gap-2">
+            <button class="btn btn-sm btn-danger" title="Sil">
+                <i class="far fa-trash-alt me-1"></i> Sil
+            </button>
+            <button class="btn btn-sm btn-info" title="Yanıtla">
+                <i class="fas fa-reply me-1"></i> Yanıtla
+            </button>
+            <button class="btn btn-sm btn-warning text-white" title="İlet">
+                <i class="fas fa-share me-1"></i> İlet
+            </button>
+            <button class="btn btn-sm btn-secondary" title="Yazdır">
+                <i class="fas fa-print me-1"></i> Yazdır
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@Html.Action("Header", "Home")
+
+<body>
+
+    <div id="wrapper">
+        <header class="market-header header">
+            <div class="container-fluid">
+                @Html.Action("Navbar", "Home")
+            </div><!-- end container-fluid -->
+        </header><!-- end market-header -->
+
+        <section class="section lb m3rem">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                        @Html.Action("HeroDetail", "Home2")
+
+                    </div><!-- end col -->
+
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sidebar">
+                            <div class="widget-no-style">
+                                <div class="newsletter-widget text-center align-self-center">
+                                    <h3>Bugün Abone Olun!</h3>
+                                    <p>Haftalık bültenimize abone olun ve güncellemeleri e-posta yoluyla alın.</p>
+                                    <form class="form-inline" method="post">
+                                        <input type="text" name="email" placeholder="E-posta adresinizi buraya girin.." required class="form-control" />
+                                        <input type="submit" value="Abone Ol" class="btn btn-default btn-block" />
+                                    </form>
+                                </div><!-- end newsletter -->
+                            </div>
+
+
+                            <div class="widget">
+                                <h2 class="widget-title">Son Yazılar</h2>
+                                <div class="blog-list-widget">
+                                    <div class="list-group">
+                                        @Html.Action("Hero3", "Home")
+
+                                    </div>
+                                </div><!-- end blog-list -->
+                            </div><!-- end widget -->
+                            <div id="" class="widget">
+                                <h2 class="widget-title">Reklam Alanı</h2>
+                                <div class="banner-spot clearfix">
+                                    <div class="banner-img">
+                                        <img src="https://medyavadisi.com/wp-content/uploads/2023/10/dijital-pazarlamada-google-reklamlari.jpg" alt="Reklam Görseli" class="img-fluid">
+                                    </div><!-- end banner-img -->
+                                </div><!-- end banner -->
+                            </div><!-- end widget -->
+
+                            <div class="widget">
+                                <h2 class="widget-title">Instagram Akışı</h2>
+                                <div class="instagram-wrapper clearfix">
+                                    <a href="#"><img src="https://images.pexels.com/photos/4533596/pexels-photo-4533596.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Instagram Fotoğrafı" class="img-fluid"></a>
+                                    <a href="#"><img src="https://images.pexels.com/photos/7792646/pexels-photo-7792646.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Instagram Fotoğrafı" class="img-fluid"></a>
+                                    <a href="#"><img src="https://images.pexels.com/photos/8076182/pexels-photo-8076182.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Instagram Fotoğrafı" class="img-fluid"></a>
+                                    <a href="#"><img src="https://images.pexels.com/photos/7593765/pexels-photo-7593765.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Instagram Fotoğrafı" class="img-fluid"></a>
+                                    <a href="#"><img src="https://images.pexels.com/photos/1850617/pexels-photo-1850617.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Instagram Fotoğrafı" class="img-fluid"></a>
+                                    <a href="#"><img src="https://images.pexels.com/photos/3205405/pexels-photo-3205405.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Instagram Fotoğrafı" class="img-fluid"></a>
+                                    <a href="#"><img src="https://images.pexels.com/photos/6964861/pexels-photo-6964861.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Instagram Fotoğrafı" class="img-fluid"></a>
+                                    <a href="#"><img src="https://images.pexels.com/photos/12433031/pexels-photo-12433031.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Instagram Fotoğrafı" class="img-fluid"></a>
+                                   
+                                </div><!-- end Instagram wrapper -->
+                            </div><!-- end widget -->
+
+                            <div class="widget">
+                                @Html.Action("Hero4", "Home")
+
+                            </div><!-- end widget -->
+
+                        </div><!-- end sidebar -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section>
+
+        @Html.Action("Footer", "Home")
+
+        <div class="dmtop">Scroll to Top</div>
+
+    </div><!-- end wrapper -->
+    <!-- Core JavaScript
+    ================================================== -->
+    <script src="~/markedia/js/jquery.min.js"></script>
+    <script src="~/markedia/js/tether.min.js"></script>
+    <script src="~/markedia/js/bootstrap.min.js"></script>
+    <script src="~/markedia/js/animate.js"></script>
+    <script src="~/markedia/js/custom.js"></script>
+
+</body>
+</html>

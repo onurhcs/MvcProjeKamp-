@@ -1,0 +1,57 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewBag.Title = "EditWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yazar Düzenleme Alanı</h1>
+<br />
+
+@using (Html.BeginForm("EditWriter", "Writer", FormMethod.Post))
+{
+    <div class="form-group">
+        <!-- Yazar ID (Gizli Alan) -->
+        @Html.HiddenFor(x => x.WriterId)
+
+        <!-- Yazar Adı -->
+        <label for="WriterName">Yazar Adı</label>
+        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control", placeholder = "Yazarın adını düzenleyin" })
+        @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
+        <br />
+
+        <!-- Yazar Soyadı -->
+        <label for="WriterSurname">Yazar Soyadı</label>
+        @Html.TextBoxFor(x => x.WriterSurname, new { @class = "form-control", placeholder = "Yazarın soyadını düzenleyin" })
+        @Html.ValidationMessageFor(x => x.WriterSurname, "", new { @class = "text-danger" })
+        <br />
+
+        <!-- Yazar Mail -->
+        <label for="WriterMail">Yazar Mail</label>
+        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control", placeholder = "Yazarın mail adresini düzenleyin" })
+        @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-danger" })
+        <br />
+
+        <!-- Yazar Şifresi -->
+        <label for="WriterPassword">Yazar Şifresi</label>
+        @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control", placeholder = "Şifreyi düzenleyin", type = "password" })
+        @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger" })
+        <br />
+
+        <!-- Yazar Görsel Link -->
+        <label for="WriterImage">Yazar Görsel Link</label>
+        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control", placeholder = "Görsel URL'sini düzenleyin" })
+        @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger" })
+        <br />
+
+        <!-- Yazar Hakkında -->
+        <label for="WriterAbout">Yazar Hakkında</label>
+        @Html.TextAreaFor(x => x.WriterAbout, new { @class = "form-control", placeholder = "Yazar hakkında bilgiyi düzenleyin", rows = 4 })
+        @Html.ValidationMessageFor(x => x.WriterAbout, "", new { @class = "text-danger" })
+        <br />
+
+        <!-- Düzenle Butonu -->
+        <button type="submit" class="btn btn-success">
+            <i class="fas fa-save"></i> Kaydet
+        </button>
+    </div>
+}

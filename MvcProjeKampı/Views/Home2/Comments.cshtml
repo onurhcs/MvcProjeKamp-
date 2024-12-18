@@ -1,0 +1,28 @@
+﻿@using EntityLayer.Concrete
+@model List<Contact>
+
+
+<div class="custombox clearfix">
+    <h4 class="small-title">@Model.Count Yorum</h4>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="comments-list">
+                @foreach (var item in Model.Take(3))
+                {
+                    <div class="media">
+                        <a class="media-left" href="#">
+                            <img src="@item.UserName" alt="" class="rounded-circle">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading user_name">
+                                @item.UserName 
+                            </h4>
+                            <p>@item.Message</p>
+                            <a href="#" class="btn btn-primary btn-sm">Cevapla</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div><!-- end col -->
+    </div><!-- end row -->
+</div><!-- end custom-box -->

@@ -1,0 +1,46 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- Son Yazılar -->
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="widget">
+                    @foreach (var item in Model.OrderByDescending(x => x.HeadingDate).Take(2))
+                    {
+                        <h2 class="widget-title">Son Yazılar</h2>
+                        <div class="blog-list-widget">
+                            <div class="list-group">
+                                <a href="marketing-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="w-100 justify-content-between">
+                                        <img src="@item.ImageUrl" alt="En Güzel Deniz" class="img-fluid float-left">
+                                        <h5 class="mb-1">@item.HeadingName</h5>
+                                        <small>@item.HeadingDate</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- Popüler Kategoriler -->
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="widget">
+                    <h2 class="widget-title">Popüler Kategoriler</h2>
+                    <div class="link-widget">
+                        @foreach (var item in Model.OrderByDescending(x => x.HeadingDate).Take(4))
+                        {
+                            <ul>
+                                <li><a href="#">@item.Category.CategoryName</a></li>
+
+                            </ul>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

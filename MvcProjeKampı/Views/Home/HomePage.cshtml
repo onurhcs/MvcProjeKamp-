@@ -1,0 +1,87 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    @Html.Action("Header", "Home")
+
+<body>
+
+    <div id="wrapper">
+        <header class="market-header header">
+            <div class="container-fluid">
+                @Html.Action("Navbar", "Home")
+
+            </div><!-- end container-fluid -->
+        </header><!-- end market-header -->
+
+       
+        @Html.Action("Hero1", "Home")
+
+        <section class="section lb">
+            <div class="container">
+                <div class="row">
+                    <!-- Ana İçerik Alanı -->
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            @Html.Action("Hero2", "Home")
+                        </div>
+
+                        <!-- Sayfalama -->
+                        <hr class="invis">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav aria-label="Sayfalama">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Sonraki</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Yan Menü Alanı -->
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sidebar">
+                            <!-- Son Yazılar -->
+                            <div class="widget">
+                                <h2 class="widget-title">Son Yazılar</h2>
+                                <div class="blog-list-widget">
+                                    <div class="list-group">
+                                        @Html.Action("Hero3", "Home")
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Popüler Kategoriler -->
+                            <div class="widget">
+                                @Html.Action("Hero4", "Home")
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @Html.Action("Footer", "Home")
+
+        <div class="dmtop">Scroll to Top</div>
+
+    </div><!-- end wrapper -->
+    <!-- Core JavaScript
+    ================================================== -->
+    <script src="~/markedia/js/jquery.min.js"></script>
+    <script src="~/markedia/js/tether.min.js"></script>
+    <script src="~/markedia/js/bootstrap.min.js"></script>
+    <script src="~/markedia/js/animate.js"></script>
+    <script src="~/markedia/js/custom.js"></script>
+
+</body>
+</html>

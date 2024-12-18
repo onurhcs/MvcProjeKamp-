@@ -1,0 +1,52 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+
+@{
+    ViewBag.Title = "Hakkımızda Yönetimi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container mt-4">
+    <h2 class="text-center text-primary mb-4">Hakkımızda Yönetimi</h2>
+    <!-- Hakkımızda Veri Listesi -->
+    <div class="card shadow-sm mb-5">
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Detay 1</th>
+                        <th scope="col">Aktif Yap</th>
+                        <th scope="col">Pasif Yap</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.AboutId</td>
+                            <td>@item.AboutDetails1</td>
+                            <td>
+                                <a href="@Url.Action("Activate", "About", new { id = item.AboutId })" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-check-circle"></i> Aktif Yap
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Deactivate", "About", new { id = item.AboutId })" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-times-circle"></i> Pasif Yap
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+ </div> 
+
+
+@Html.Action("AboutPartial","About")
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

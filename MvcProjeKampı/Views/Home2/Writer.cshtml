@@ -1,0 +1,25 @@
+﻿@model List<EntityLayer.Concrete.Writer>
+
+@foreach (var writer in Model.Take(2))
+{
+    <div class="row mb-3">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+            <img src="@writer.WriterImage" alt="@writer.WriterName" class="img-fluid rounded-circle">
+        </div><!-- end col -->
+
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+            <h4>@writer.WriterName @writer.WriterSurname</h4>
+            <p>
+                @writer.WriterAbout
+                
+            </p>
+        <p>@writer.WriterTitle</p>
+            <div class="topsocial">
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Website"><i class="fa fa-link"></i></a>
+            </div><!-- end social -->
+        </div><!-- end col -->
+    </div><!-- end row -->
+}

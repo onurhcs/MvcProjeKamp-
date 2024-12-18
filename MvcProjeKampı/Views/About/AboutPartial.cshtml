@@ -1,0 +1,54 @@
+﻿<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#aboutModal">
+    <i class="fas fa-plus-circle"></i> Yeni Hakkımızda Yazı Ekle
+</button>
+<!-- Yeni Hakkımızda Yazısı Ekle Butonu -->
+<!-- Modal -->
+<div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="aboutModalLabel">Yeni Hakkımızda Yazısı Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+
+            <!-- Modal Form -->
+            <form method="post" action="/About/AddAbout/">
+                <div class="modal-body">
+                    <!-- Detay 1 -->
+                    <div class="form-group mb-3">
+                        <label for="AboutDetails1" class="form-label">Detay 1</label>
+                        <textarea id="AboutDetails1" name="AboutDetails1" class="form-control" rows="3" placeholder="Hakkımızda detay bilgisi ekleyin"></textarea>
+                    </div>
+
+                    <!-- Detay 2 -->
+                    <div class="form-group mb-3">
+                        <label for="AboutDetails2" class="form-label">Detay 2</label>
+                        <textarea id="AboutDetails2" name="AboutDetails2" class="form-control" rows="3" placeholder="İkinci detay bilgisi ekleyin"></textarea>
+                    </div>
+
+                    <!-- Görsel 1 -->
+                    <div class="form-group mb-3">
+                        <label for="AboutImage1" class="form-label">Görsel 1 URL</label>
+                        <input type="text" id="AboutImage1" name="AboutImage" class="form-control" placeholder="Görsel URL'sini girin">
+                    </div>
+
+                    <!-- Görsel 2 -->
+                    <div class="form-group mb-3">
+                        <label for="AboutImage2" class="form-label">Görsel 2 URL</label>
+                        <input type="text" id="AboutImage2" name="AboutImage2" class="form-control" placeholder="Görsel URL'sini girin">
+                    </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Kaydet
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

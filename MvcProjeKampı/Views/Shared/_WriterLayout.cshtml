@@ -1,0 +1,101 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Yazar Yönetim</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <link rel="icon" href="~/Admin/assets/img/kaiadmin/favicon.ico" type="image/x-icon" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="~/Admin/assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+        WebFont.load({
+            google: { families: ["Public Sans:300,400,500,600,700"] },
+            active: function () {
+                sessionStorage.fonts = true;
+            },
+        });
+    </script>
+    <link rel="stylesheet" href="~/Admin/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Admin/assets/css/kaiadmin.min.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar" data-background-color="dark">
+            <div class="sidebar-wrapper scrollbar scrollbar-inner">
+                <div class="sidebar-content">
+                    <ul class="nav nav-primary">
+                        <!-- Profilim -->
+                        <li class="nav-item">
+                            <a href="~/Profile/Index">
+                                <i class="fas fa-user"></i>
+                                <p>Profilim</p>
+                            </a>
+                        </li>
+
+                        <!-- Başlıklarım -->
+                        <li class="nav-item">
+                            <a href="/WriterPanel/MyHeading/">
+                                <i class="fas fa-list"></i>
+                                <p>Başlıklarım</p>
+                            </a>
+                        </li>
+
+                        <!-- Mesajlar -->
+                        <li class="nav-item">
+                            <a href="/Message/Inbox/">
+                                <i class="fas fa-envelope"></i>
+                                <p>Mesajlar</p>
+                            </a>
+                        </li>
+
+                        <!-- Yazılarım -->
+                        <li class="nav-item">
+                            <a href="~/Writer/WriterDetails">
+                                <i class="fas fa-edit"></i>
+                                <p>Yazılarım</p>
+                            </a>
+                        </li>
+
+                        <!-- Siteye Git -->
+                        <li class="nav-item">
+                            <a href="~/Home/Index" target="_blank">
+                                <i class="fas fa-globe"></i>
+                                <p>Siteye Git</p>
+                            </a>
+                        </li>
+
+                        <!-- Çıkış Yap -->
+                        <li class="nav-item">
+                            <a href="~/Account/Logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <p>Çıkış Yap</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- İçerik Alanı -->
+        <div class="main-panel">
+            <div class="container mt-4">
+                <div class="page-inner">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Dosyaları -->
+    <script src="~/Admin/assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="~/Admin/assets/js/core/popper.min.js"></script>
+    <script src="~/Admin/assets/js/core/bootstrap.min.js"></script>
+    <script src="~/Admin/assets/js/kaiadmin.min.js"></script>
+</body>
+</html>

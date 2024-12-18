@@ -1,0 +1,105 @@
+﻿@using EntityLayer.Concrete
+@model List<Content>
+@{
+    ViewBag.Title = "ContentByHeading";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Zaman Çizgisi Simgesi */
+        .timeline-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #007bff;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        /* Zaman Çizgisi Çizgisi */
+        .timeline-line {
+            width: 3px;
+            background-color: #007bff;
+            height: 100%;
+            margin-left: 25px;
+        }
+
+        /* Zaman Çizgisi Kart */
+        .timeline-card {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .time-label {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <section class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="timeline">
+                            @foreach (var item in Model)
+                            {
+                                <div class="row mb-4">
+                                    <!-- Zaman Çizgisi İkon ve Çizgi -->
+                                    <div class="col-auto text-center flex-column d-flex">
+                                        <div class="timeline-icon">
+                                            <i class="fas fa-comment"></i>
+                                        </div>
+                                        <div class="timeline-line"></div>
+                                    </div>
+
+                                    <!-- Zaman Çizgisi İçerik -->
+                                    <div class="col">
+                                        <div class="card timeline-card">
+                                            <div class="card-header bg-primary text-white">
+                                                <h6 class="mb-0">
+                                                    @item.ContentDate.ToString("dd MMMM yyyy HH:mm") <!-- Tarih ve Zaman -->
+                                                </h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title text-primary font-weight-bold">
+                                                    Yazar ID: @item.WriterId <!-- Writer bilgisi -->
+                                                </h5>
+                                                <p class="card-text">
+                                                    @item.ContentValue <!-- İçerik -->
+                                                </p>
+                                                <div class="d-flex justify-content-end">
+                                                    <a href="@Url.Action("ViewContent", "Content", new { id = item.ContentId })" class="btn btn-sm btn-primary me-2">
+                                                        <i class="fas fa-folder-open"></i> Görüntüle
+                                                    </a>
+                                                    <a href="@Url.Action("EditContent", "Content", new { id = item.ContentId })" class="btn btn-sm btn-info me-2">
+                                                        <i class="fas fa-pencil-alt"></i> Düzenle
+                                                    </a>
+                                                    <a href="@Url.Action("DeleteContent", "Content", new { id = item.ContentId })" class="btn btn-sm btn-danger">
+                                                        <i class="fas fa-trash"></i> Sil
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+
+<h2 class="widget-title">Popüler Kategoriler</h2>
+<div class="link-widget">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="#">@item.Category.CategoryName <span>@Model.Count</span></a></li>
+        }
+    </ul>
+</div>
